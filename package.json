@@ -11,11 +11,17 @@
   ],
   "license": "MIT",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "eject": "expo eject"
+    "start": "NODE_ENV=development expo start",
+    "build:android:staging": "NODE_ENV=staging && eas build --platform android",
+    "submit:android:staging": "NODE_ENV=staging && eas submit --platform android",
+    "build:ios:staging": "NODE_ENV=staging && eas build --platform ios",
+    "submit:ios:staging": "NODE_ENV=staging && eas submit --platform ios",
+    "build:android:prod": "NODE_ENV=production && eas build --platform android",
+    "submit:android:prod": "NODE_ENV=production && eas submit --platform android",
+    "build:ios:prod": "NODE_ENV=production && eas build --platform ios",
+    "submit:ios:prod": "NODE_ENV=production && eas submit --platform ios",
+    "eas:logout": "eas logout",
+    "eas:login": "eas login"
   },
   "dependencies": {
     "expo": "~42.0.0",
@@ -26,7 +32,10 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-safe-area-context": "3.2.0",
     "react-native-svg": "12.1.1",
-    "react-native-web": "~0.13.12"
+    "react-native-web": "~0.13.12",
+    "react-router-native": "^6.3.0",
+    "expo-network": "~3.2.0",
+    "expo-notifications": "~0.12.3"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -35,9 +44,9 @@
     "typescript": "~4.0.0"
   },
   "bugs": {
-    "url": "https://github.com/GeekyAnts/nativebase-templates/issues"
+    "url": "https://github.com/hirehouse/hirehouse-mobile.git/issues"
   },
-  "homepage": "https://github.com/GeekyAnts/nativebase-templates#readme",
-  "author": "Aditya Jamuar",
+  "homepage": "https://github.com/hirehouse/hirehouse-mobile.git#readme",
+  "author": "Andreas Iosifelis",
   "private": true
 }
