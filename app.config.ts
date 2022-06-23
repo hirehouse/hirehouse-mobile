@@ -18,19 +18,10 @@ export default {
             [
                 "expo-notifications",
                 {
-                    icon: "./assets/ShemPIcon.png",
+                    icon: "./assets/icon.png",
                     color: "#ffffff",
                     sounds: ["./assets/mixkitscifirejectnotification896.wav"],
                     iosDisplayInForeground: true,
-                },
-            ],
-            [
-                "@config-plugins/react-native-webrtc",
-                {
-                    cameraPermission:
-                        "Allow $(PRODUCT_NAME) to access your camera",
-                    microphonePermission:
-                        "Allow $(PRODUCT_NAME) to access your microphone",
                 },
             ],
         ],
@@ -56,7 +47,7 @@ export default {
         },
         android: {
             adaptiveIcon: {
-                foregroundImage: "./assets/playstore.png",
+                foregroundImage: "./assets/icon.png",
                 backgroundColor: "#FFFFFF",
             },
             package: "ca.hirehouse.mobile",
