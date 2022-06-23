@@ -1,8 +1,9 @@
 import { NativeBaseProvider } from "native-base";
 import React, { useReducer } from "react";
+import { NativeRouter } from "react-router-native";
 import Context, { context, reducer } from "./context";
 import TranslationProvider from "./i18n";
-import AppScreens from "./screens";
+import AppRoutes from "./routes";
 
 function AppContainer() {
     const [appContext, dispatch] = useReducer(reducer, context);
@@ -11,7 +12,9 @@ function AppContainer() {
         <NativeBaseProvider>
             <Context.Provider value={{ ...appContext, dispatch }}>
                 <TranslationProvider>
-                    <AppScreens />
+                    <NativeRouter>
+                        <AppRoutes />
+                    </NativeRouter>
                 </TranslationProvider>
             </Context.Provider>
         </NativeBaseProvider>
