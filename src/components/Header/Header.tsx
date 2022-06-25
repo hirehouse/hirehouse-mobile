@@ -1,71 +1,52 @@
-import { MaterialIcons } from "@expo/vector-icons";
-import { Box, HStack, Icon, IconButton, StatusBar, Text } from "native-base";
+import { Feather } from "@expo/vector-icons";
+import { Box, Heading, HStack, Icon, IconButton, StatusBar } from "native-base";
 import React from "react";
+import { GestureResponderEvent } from "react-native";
 
-interface HeaderProps {}
+interface HeaderProps {
+    onHomePress: (e: GestureResponderEvent) => void;
+    onProfilePress: (e: GestureResponderEvent) => void;
+}
 
 function Header(props: HeaderProps) {
+    const { onHomePress, onProfilePress } = props;
+
     return (
-        <>
-            <StatusBar backgroundColor="#3700B3" barStyle="light-content" />
-            <Box bg="#6200ee" />
-            <HStack
-                bg="#6200ee"
-                px="1"
-                py="3"
-                justifyContent="space-between"
-                alignItems="center"
-                w="100%"
-            >
-                <HStack alignItems="center">
-                    <IconButton
-                        icon={
-                            <Icon
-                                size="sm"
-                                as={MaterialIcons}
-                                name="menu"
-                                color="white"
-                            />
-                        }
-                    />
-                    <Text color="white" fontSize="20" fontWeight="bold">
-                        Home
-                    </Text>
-                </HStack>
-                <HStack>
-                    <IconButton
-                        icon={
-                            <Icon
-                                as={MaterialIcons}
-                                name="favorite"
-                                size="sm"
-                                color="white"
-                            />
-                        }
-                    />
-                    <IconButton
-                        icon={
-                            <Icon
-                                as={MaterialIcons}
-                                name="search"
-                                size="sm"
-                                color="white"
-                            />
-                        }
-                    />
-                    <IconButton
-                        icon={
-                            <Icon
-                                as={MaterialIcons}
-                                name="more-vert"
-                                size="sm"
-                                color="white"
-                            />
-                        }
-                    />
-                </HStack>
+        <Box bg="blueGray.100">
+            <StatusBar barStyle="default" backgroundColor="blueGrat.100" />
+            <HStack alignItems="center">
+                <IconButton
+                    onPress={onHomePress}
+                    icon={
+                        <Icon
+                            size="lg"
+                            as={Feather}
+                            name="home"
+                            color="red.900"
+                        />
+                    }
+                />
+                <Heading
+                    flex={1}
+                    justifyContent="center"
+                    textAlign="center"
+                    color="red.900"
+                >
+                    HireHouse
+                </Heading>
+                <IconButton
+                    onPress={onProfilePress}
+                    icon={
+                        <Icon
+                            size="lg"
+                            as={Feather}
+                            name="user"
+                            color="red.900"
+                        />
+                    }
+                />
             </HStack>
-        </>
+        </Box>
     );
 }
 export default Header;
